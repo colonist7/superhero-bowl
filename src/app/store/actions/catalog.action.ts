@@ -13,8 +13,7 @@ export const setCatalogContent = (details: any) => {
 export const getCatalogContent = (options: any) => async (dispatch: Dispatch<any>) => {
 	try {
 		const content: any = await ApiHandler.getCatalog(options);
-		if (!!content) {
-			console.log('CONTENT', content);
+		if (!!content && !!content.data) {
 			dispatch(setCatalogContent(content.data.results));
 		}
 	} catch (err: any) {
